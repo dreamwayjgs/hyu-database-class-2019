@@ -4,7 +4,7 @@
 
 아래의 Docker Desktop 개발 환경 또는 직접 설치 중 한 가지 환경을 선택하여 따라하고 Python 과 Postgresql 이 실행 가능한 환경을 준비해야합니다.
 
-## 목표
+## 목차
 1. 들어가기 전에    
 1. Docker Desktop 개발 환경
     1. Docker Desktop 설치
@@ -49,6 +49,19 @@ Windows Home 의 경우 WSL2 가 필수적입니다.
 
 [해당 자습서](https://docs.docker.com/docker-for-windows/wsl/)를 통해 WSL2 활성화와 드라이버 설치 등을 수행해주세요.
 
+#### WSL 배포판 설치
+
+WSL 2 실행을 위한 배포판을 설치합니다. Microsoft store 에서 설치할 수 있습니다.
+
+대표적인 배포판은 다음과 같습니다.
+
+  - [Ubuntu](https://www.microsoft.com/ko-kr/p/ubuntu-2004-lts/9n6svws3rx71?activetab=pivot:overviewtab)
+  - [OpenSUSE](https://www.microsoft.com/ko-kr/p/opensuse-leap-15-1/9njfzk00fgkv?activetab=pivot:overviewtab)
+
+많은 한국어 자료가 Ubuntu 기반으로 되어있으므로 Ubuntu 를 추천합니다.
+
+단, 본 자습서에서는 VSCode Remote Development 만 지원한다면 배포판에 따른 특이사항은 없으므로 아무 배포판을 깔아도 상관은 없습니다. 다만 OpenSUSE는 설치 용량이 적습니다.
+
 #### Linux - Docker Engine
 
 배포판 별로 설치 방법이 다를 수 있습니다.
@@ -91,8 +104,6 @@ Docker version 19.03.12, build 48a66213fe
 
 #### Remote Development Dropdown
 ![Cap 2020-08-03 14-00-09-815](https://user-images.githubusercontent.com/32762296/89147464-ad23cc00-d591-11ea-92ef-2e09b031d3ff.png)
-
-
 
 ## 직접 설치
 

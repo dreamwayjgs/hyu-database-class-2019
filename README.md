@@ -25,3 +25,6 @@ Docker 버전만 맞으면 WSL 을 사용하지 않아도 작동할 것. (테스
     1. VSCode remote development 살펴보기
     1. 실행
 1. Hello, world!
+
+# QnA
+aninteger@hanyang.ac.kr
