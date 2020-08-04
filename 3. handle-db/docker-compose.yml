@@ -6,4 +6,4 @@ services:
         volumes: 
             - .:/workspace        
         tty: true    
-        stdin_open: true
+        stdin_open: true        

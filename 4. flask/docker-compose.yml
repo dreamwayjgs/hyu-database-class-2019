@@ -7,3 +7,5 @@ services:
             - .:/workspace        
         tty: true    
         stdin_open: true
+        ports: 
+            - "5000:5000"
