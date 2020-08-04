@@ -44,6 +44,7 @@ def create_table(cur): ...
 
 def drop_table(cur):...
 ```
+- 읽기를 제외하고 데이터베이스가 실제로 변동이 있을 때 (삽입, 갱신, 삭제) <code>conn.commit()</code> 으로 DB에 변동사항을 적용한다.
 
 ## 레코드 읽기, 만들기, 갱신하기, 지우기
 'example' 테이블에 데이터 레코드 (row, tuple, record) 입력하기
@@ -70,6 +71,22 @@ cur.execute(sql, (id, name))
 ```
 - 쿼리 안에 변수를 직접 넣고 싶으면 python 의 [formatted string](https://docs.python.org/ko/3/tutorial/inputoutput.html) 을 사용할 수도 있지만 psycopg 의 parameterized query 를 사용하면 더 간편하고, 타입 적용에 있어서 안전하다.
 - [더 많은 예제](https://www.psycopg.org/docs/usage.html#passing-parameters-to-sql-queries)
+
+갱신 - UPDATE
+```python
+def update(cur): ...
+
+def update_with_parameters(cur, id, name): ...
+```
+
+삭제 - DELETE
+```python
+def delete(cur): ...
+
+def delete_with_parameters(cur, id): ...
+```
+
+- 마찬가지로 삽입, 갱신, 삭제에는 <code>conn.commit()</code> 으로 DB에 변동사항을 적용한다.
 
 
 ## Command line arguments 와 같이 실행하기

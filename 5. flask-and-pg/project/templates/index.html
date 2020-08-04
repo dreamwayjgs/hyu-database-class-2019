@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>First Web Site</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <h1>Hello, Students!</h1>
+    <p>Enroll Form</p>
+    <form id="form" action="/enroll" method="POST">
+        <input type="text" id="nameinput" name="name" placeholder="이름" />
+        <input type="email" name="email" placeholder="이메일" />
+        <input type="password" name="password" placeholder="비밀번호" />
+        <button type="submit">가입하기</button>
+    </form>
+    <h4>Student List</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    name
+                </th>
+                <th>
+                    email
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+            <tr>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+
+</html>
