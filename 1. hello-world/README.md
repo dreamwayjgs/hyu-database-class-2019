@@ -151,7 +151,7 @@ ports:
 
 본 자습서는 한 가지 명령어만 사용합니다. VSCode 좌측 하단의 Remote Development 버튼 ![Cap 2020-08-03 13-58-44-757](https://user-images.githubusercontent.com/32762296/89147397-764db600-d591-11ea-9e7e-f0c3c4876e30.png) 을 클릭하고, <code>Open Folder in Container</code> 를 클릭합니다.
 
-파일/폴더 선택 대화상자가 열리면 본 프로젝트 폴더 내의 python 폴더를 선택하고 열기를 누릅니다.
+파일/폴더 선택 대화상자가 열리면 본 프로젝트 폴더 내의 <code>python</code> 폴더를 선택하고 열기를 누릅니다.
 
 그러면 현재 창이 닫히고 새 창이 열리며, 좌측 하단에 <code>Starting with dev container</code> 의 팝업이 생기며 여러 과정이 수행됩니다.
 
