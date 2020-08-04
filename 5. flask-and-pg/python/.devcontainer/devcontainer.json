@@ -28,7 +28,9 @@
 		"python.linting.flake8Args": [
 			"--max-line-length=120"
 		],
-		"python.jediEnabled": true
+		"python.autoComplete.extraPaths": [
+			"/workspace/project"
+		]
 	},
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
