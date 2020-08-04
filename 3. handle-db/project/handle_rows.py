@@ -2,20 +2,42 @@ from connect_db import get_db_connection
 import sys
 
 
-def insert():
-    pass
+def insert(cur):
+    sql = "INSERT INTO example (id, name) VALUES (1, 'sample')"
+    cur.execute(sql)
 
 
-def select():
-    pass
+def insert_with_parameters(cur, id, name):
+    sql = "INSERT INTO example (id, name) VALUES (%s, %s)"
+    cur.execute(sql, (id, name))
 
 
-def update():
-    pass
+def select(cur):
+    sql = "SELECT * FROM example"
+    cur.execute(sql)
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
 
 
-def delete():
-    pass
+def update(cur):
+    sql = "UPDATE example SET name = 'updated sample' where id = 1"
+    cur.execute(sql)
+
+
+def update_with_parameters(cur, id, name):
+    sql = "UPDATE example SET name = %s where id = %s"
+    cur.execute(sql, (name, id))
+
+
+def delete(cur):
+    sql = "DELETE FROM example WHERE id = 1"
+    cur.execute(sql)
+
+
+def delete_with_parameters(cur, id):
+    sql = "DELETE FROM example WHERE id = %s"
+    cur.execute(sql, [id])
 
 
 def main():
@@ -29,27 +51,41 @@ def main():
 
         # Read db lists
         if command == "insert":
-            get_db_list(cur)
+            if len(sys.argv) == 4:
+                id = sys.argv[2]
+                name = sys.argv[3]
+                insert_with_parameters(cur, id, name)
+            else:
+                insert(cur)
+            conn.commit()
 
         # Read table list in db
         elif command == "select":
-            get_table_list(cur)
+            select(cur)
 
         # Create table
         elif command == "update":
-            print("Create table: 'example'")
-            create_table(cur)
+            if len(sys.argv) == 4:
+                id = sys.argv[2]
+                name = sys.argv[3]
+                update_with_parameters(cur, id, name)
+            else:
+                update(cur)
             conn.commit()
 
         # Drop table
-        elif command == "drop":
-            print("drop table: 'example'")
-            drop_table(cur)
+        elif command == "delete":
+            if len(sys.argv) == 3:
+                id = sys.argv[2]
+                delete_with_parameters(cur, id)
+            else:
+                delete(cur)
             conn.commit()
 
         else:
             print("Wrong command")
 
+        print("Job's done")
     except (Exception) as error:
         print("Connection Failed", error)
     finally:

@@ -69,6 +69,7 @@ def main():
         else:
             print("Wrong command")
 
+        print("Job's done")
     except (Exception) as error:
         print("Connection Failed", error)
     finally:
