@@ -1,4 +1,4 @@
-# Chapter 0. Hello, world
+# 1. Hello, world
 
 ## 목차
 1. 폴더 구성

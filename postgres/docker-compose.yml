@@ -6,6 +6,7 @@ services:
     container_name: python-postgres-example
     environment:
       - POSTGRES_PASSWORD=1234
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8
     expose:
       - '54320'
     ports:
