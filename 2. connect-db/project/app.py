@@ -1,4 +1,4 @@
-import psycopg2 as pg
+import psycopg2 as pg  # pip install psycopg2-binary
 
 # default postgres settings
 db_connection_info = {"host": "localhost", "user": "postgres", "dbname": "postgres", "port": 5432}
