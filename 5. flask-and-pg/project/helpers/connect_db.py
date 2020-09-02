@@ -5,7 +5,8 @@ db_connection_info = {"host": "localhost", "user": "postgres", "dbname": "postgr
 
 # TODO: Override connection info
 # when postgres runs on docker container
-db_connection_info["host"] = "host.docker.internal"
+db_connection_info["host"] = "host.docker.internal"  # windows, macOS
+db_connection_info["host"] = "172.17.0.1"  # linux
 db_connection_info["port"] = 54320
 db_connection_info["password"] = 1234
 
