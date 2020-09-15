@@ -147,9 +147,9 @@ ports:
 - 호스트 PC(좌측)의 5000 번 포트와 컨테이너의 5000 번 포트를 연결합니다.
 - 단, 외부에는 노출되지 안습니다. expose 를 사용해야 합니다.
 
-### Remote-Container 실행하기
+### Remote-Container 실행하기: 방법 1
 
-본 자습서는 한 가지 명령어만 사용합니다. VSCode 좌측 하단의 Remote Development 버튼 ![Cap 2020-08-03 13-58-44-757](https://user-images.githubusercontent.com/32762296/89147397-764db600-d591-11ea-9e7e-f0c3c4876e30.png) 을 클릭하고, <code>Open Folder in Container</code> 를 클릭합니다.
+VSCode 좌측 하단의 Remote Development 버튼 ![Cap 2020-08-03 13-58-44-757](https://user-images.githubusercontent.com/32762296/89147397-764db600-d591-11ea-9e7e-f0c3c4876e30.png) 을 클릭하고, <code>Open Folder in Container</code> 를 클릭합니다.
 
 파일/폴더 선택 대화상자가 열리면 본 프로젝트 폴더 내의 <code>python</code> 폴더를 선택하고 열기를 누릅니다.
 
@@ -171,6 +171,23 @@ python 3.8.5
 ```
 - 예시 화면
 ![Cap 2020-08-03 15-57-48-733](https://user-images.githubusercontent.com/32762296/89154578-17dd0380-d5a2-11ea-88dc-d49fb4adef91.png)
+
+### Remote-Container 실행하기: 방법 2 - 별도로 실행하기
+
+자신 환경에 맞는 터미널에서 <code>docker-compose.yml</code> 가 있는 프로젝트 폴더로 이동합니다.
+
+다음 명령어로 직접 docker 컨테이너를 실행합니다.
+
+```bash
+docker-compose up -d
+```
+
+컨테이너가 잘 실행됐다면 <code>docker ps</code> 명령어로 실행된 컨테이너들을 볼 수 있습니다. 프로젝트상위 폴더명_python_1 형태와 비슷한 컨테이너가 생성된 것을 알 수 있습니다.
+
+VSCode 좌측 하단의 Remote Development 버튼 ![Cap 2020-08-03 13-58-44-757](https://user-images.githubusercontent.com/32762296/89147397-764db600-d591-11ea-9e7e-f0c3c4876e30.png) 을 클릭하고, <code>Attach to running container</code> 를 클릭합니다.
+
+<code>docker ps</code> 명령어로 위에서 알아낸 컨테이너 이름을 골라 클릭하여 연결합니다.
+
 
 ## [실행](#Run)
 Python 이 올바르게 설치되어있다면 app.py 를 실행해봅니다.
