@@ -9,5 +9,5 @@
 실습한 컨테이너를 종료하자
 ```bash
 # Chap2_Python+Web-Flask 폴더 에서
-docker-compose down
+docker-compose down -v
 ```

@@ -18,5 +18,5 @@
 실습한 컨테이너를 종료하자
 ```bash
 # Chap1_Python 폴더 에서
-docker-compose down
+docker-compose down -v
 ```
