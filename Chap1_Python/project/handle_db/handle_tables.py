@@ -1,5 +1,5 @@
 from connect_db import get_db_connection
-import sys
+import argparse
 
 
 def get_db_list(cur):
@@ -37,11 +37,8 @@ def drop_table(cur):
     cur.execute(sql)
 
 
-def main():
-    if len(sys.argv) < 2:
-        print("A command argument required.")
-        return
-    command = sys.argv[1]
+def main(args):
+    command = args.command
     try:
         conn = get_db_connection()
         cur = conn.cursor()
@@ -78,4 +75,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Show current db and tables. Create or drop 'example' table.")
+    parser.add_argument("command", type=str)
+    args = parser.parse_args()
+    main(args)
