@@ -14,7 +14,6 @@
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
 	"workspaceFolder": "/workspace/project",
-	"workspaceMount": "source=remote-workspace,target=/workspace,type=volume",
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
 		"python.formatting.provider": "black",
@@ -35,7 +34,11 @@
 		"python.languageServer": "Pylance",
         "python.pythonPath": "/usr/local/bin/python",
         "python.analysis.extraPaths": [
-            "flask-pg"
+            "A3-module_basic",
+            "A4-arguments",
+            "A5-argparse",
+            "C1-connect_db",
+            "C2-handle_db"
         ]
 	},
 	// Add the IDs of extensions you want installed when the container is created.

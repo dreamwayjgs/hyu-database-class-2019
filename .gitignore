@@ -1,3 +1,6 @@
+# Hidden project folders
+XX-*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

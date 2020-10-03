@@ -5,7 +5,7 @@ services:
     image: postgres:12
     container_name: python-postgres-example
     environment:
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_PASSWORD=${PG_PASSWORD:-1234}
       - POSTGRES_INITDB_ARGS=--encoding=UTF-8
     expose:
       - '54320'
@@ -15,6 +15,15 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./home:/home
     restart: always
+    
+  pgadmin:      
+    image: dpage/pgadmin4:4.23
+    ports:
+      - "8880:80"
+    environment:            
+      PGADMIN_DEFAULT_EMAIL: "${PGADMIN_EMAIL:-admin}"
+      PGADMIN_DEFAULT_PASSWORD: "${PGADMIN_PASSWORD:-1234}"
+        
 
 volumes: 
   pgdata:
