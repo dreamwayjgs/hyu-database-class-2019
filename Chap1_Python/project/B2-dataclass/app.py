@@ -1,23 +1,15 @@
-from csv_helper import read_csv, write_csv
+from csv_helper import read_csv
 import argparse
-from pprint import pprint
 from models import Bank, Customer
 
 
-def create_bankdb():
-    banks = read_csv("data/bank.csv")
-    banktable = []
-    for bank in banks[1:]:
-        banktable.append(Bank(*bank))
-    return banktable
-
-
-def create_customerdb():
-    customers = read_csv("data/customers.csv")
-    customertable = []
-    for customer in customers[1:]:
-        customertable.append(Customer(*customer))
-    return customertable
+def create_table(filename, Cls):
+    data = read_csv(filename)
+    header = data[0]
+    table = []
+    for item in data[1:]:
+        table.append(Cls(*item))
+    return header, table
 
 
 def find_bank(code, banktable):
@@ -44,42 +36,23 @@ def find_customer_info(code, account_num, db):
     if not customer:
         return f"ERROR: No such customer having {code}, {account_num}"
 
-    return bank, customer
-
-
-def transfer(code, account_num, amount, db):
-    bank, customer = find_customer_info(code, account_num, db)
-    if not bank:
-        return f"ERROR: No such bank code: {code}"
-    if not customer:
-        return f"ERROR: No such customer having {code}, {account_num}"
-
-    customer.balance += amount
-    print("after", customer)
-    pprint(db[1])
-    # write_csv("data/customers.csv", customers)
+    return f"{customer}, bank_name: {bank.name}"
 
 
 def main(args):
     code = int(args.bank_code)
     account_num = args.account_num
-    amount = int(args.amount) if args.amount else 0
 
-    banktable = create_bankdb()
-    customertable = create_customerdb()
-
-    if amount == 0:
-        _, customer = find_customer_info(code, account_num, (banktable, customertable))
-        print(customer)
-    else:
-        transfer(code, account_num, amount, (banktable, customertable))
+    _, banktable = create_table("data/bank.csv", Bank)
+    _, customertable = create_table("data/customers.csv", Customer)
+    customer = find_customer_info(code, account_num, (banktable, customertable))
+    print(customer)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("bank_code", help="Bank code")
     parser.add_argument("account_num", help="Account number")
-    parser.add_argument("-a", "--amount", help="Wire transfer amount")
     args = parser.parse_args()
     print("ARGS: ", args)
     main(args)

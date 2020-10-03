@@ -43,5 +43,20 @@ class Customer:
     def email(self):
         return f"{self.local}@{self.domain}"
 
-    def __repr__(self):
+    def __iter__(self):
+        return iter(self.tolist())
+
+    def tolist(self):
+        return [
+            self.name,
+            self.phone,
+            self.local,
+            self.domain,
+            self.passwd,
+            self._bankid,
+            self.accountnum,
+            self._balance,
+        ]
+
+    def __str__(self):
         return f"name: {self.name}, phone: {self.phone}, email: {self.email}, balance: {self.balance}"
