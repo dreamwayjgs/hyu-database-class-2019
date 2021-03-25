@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Hello, Students!</h1>
+    <form id="board" action="board">
+        <input type="textarea" name="text" placeholder="아무거나 입력하세요">
+        <input type="submit" value="로그인">
+    </form>
+    <script>
+        const board = document.getElementById("board")
+        console.log("바깥 스코프")
+        console.log(this)
+        console.log(board)
+        // board.onsubmit = event => {
+        //     event.preventDefault()
+        //     console.log(this)
+        //     console.log(board)
+        // }
+        board.onsubmit = function () {
+            event.preventDefault()
+            const data = {
+                text: "아무렇게나 쓴 값"
+            }
+            fetch("/board", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }).then(res => res.text()).catch(reason => {
+                console.log("ERROR with", reason)
+            })
+        }
+
+    </script>
+</body>
+
+</html>
