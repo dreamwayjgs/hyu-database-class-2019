@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Hello world
+    <h1 id="elem1">headerasdfasfd</h1>
+    <input type="text" id="writer">
+    <button id='get-text'>누르기</button>
+    <p id="memo">메모1</p>
+    <p id="memo2">메모2</p>
+    <script>
+        const getTextButton = document.getElementById('get-text');
+        getTextButton.addEventListener('click', () => {
+            // let memo = document.getElementById('memo');
+            // let x = 2;
+            // const addText = (result) => {
+            //     this.innerText = result;
+            // }
+            // const fetchResponse = fetch('http://127.0.0.1:5000/greet')
+            // const fetchResult = fetchResponse.then(r => r.text())
+            // const result = fetchResult.then(
+            //     (result) => {
+            //         console.log(this);
+            //         memo.innerText = result;
+            //         console.log(x)
+            //     }
+            // )
+            // memo = document.getElementById('memo2');
+            fetch('http://127.0.0.1:5000/greet').then(r => r.json()).then(data => console.log(typeof data, data))
+
+            const data = {
+                greet: 'hello',
+                timestamp: new Date().toISOString()
+            }
+
+            // fetch('http://127.0.0.1:5000/order', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify(data)
+            // }).then(res => {
+            //     console.log(res)
+            // })
+        });
+    </script>
+</body>
+
+</html>
